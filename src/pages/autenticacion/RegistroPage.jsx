@@ -34,13 +34,8 @@ const RegistroPage = () => {
   return (
     <div className="container">
       <div className="row justify-content-center">
-<<<<<<< HEAD
-        <div className="col-lg-4 col-md-6 col-sm-8">
-          <h2 className="text-center mb-4">Registro</h2>
-=======
         <div className="form-container col-lg-4 col-md-6 col-sm-8">
           <h2 className="text-center mb-4">Register</h2>
->>>>>>> 4b0e4ba22299bcd87aed40be1e3016d892120f6f
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="username" className="form-label">
