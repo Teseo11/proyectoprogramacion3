@@ -1,0 +1,8 @@
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 5fr ;
+}
+
+.navbar {
+  height: 100vh;
+}
