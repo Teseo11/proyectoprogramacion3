@@ -8,67 +8,71 @@ import {
   HiOutlineHome,
   HiOutlineUserCircle,
 } from "react-icons/hi2";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
+  const { rol } = useAuth();
+
+  const rutas = {
+    Admin: [
+      { path: "/inicio", label: "Inicio" },
+      { path: "/productos", label: "Productos" },
+      { path: "/clientes", label: "Clientes" },
+      { path: "/ventas", label: "Ventas" },
+      { path: "/usuarios", label: "Usuarios" },
+    ],
+    Empleado: [
+      { path: "/inicio", label: "Inicio" },
+      { path: "/productos", label: "Productos" },
+      { path: "/clientes", label: "Clientes" },
+      { path: "/ventas", label: "Ventas" },
+    ],
+    null: [{ path: "/", label: "Login" }],
+  };
+
+  const navItems = rutas[rol];
+
   return (
     <div className="navbar nav-container">
-      {/* <h3 className="nav-title">ni idea</h3> */}
-      <ul>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-            to="/inicio"
-          >
-            <HiOutlineHome color="#FCA311" />
-            Inicio
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-            to="/productos"
-          >
-            <HiOutlineBuildingStorefront color="#FCA311" />
-            Productos
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-            to="/clientes"
-          >
-            <HiOutlineUserGroup color="#FCA311" />
-            Clientes
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-            to="/ventas"
-          >
-            <HiOutlineCurrencyDollar color="#FCA311" />
-            Ventas
-          </NavLink>
-        </li>
-        {/* <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-            to="/facturas"
-          >
-            <HiOutlineReceiptPercent color="#FCA311" />
-            Facturas
-          </NavLink>
-        </li> */}
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-            to="/usuarios"
-          >
-            <HiOutlineUserCircle color="#FCA311" />
-            Usuarios
-          </NavLink>
-        </li>
-      </ul>
+      <nav>
+        <ul>
+          {navItems.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) => (isActive ? "active-link" : null)}
+              >
+                {item.label == "Inicio" ? (
+                  <HiOutlineHome color="#FCA311" />
+                ) : (
+                  ""
+                )}
+                {item.label == "Productos" ? (
+                  <HiOutlineBuildingStorefront color="#FCA311" />
+                ) : (
+                  ""
+                )}
+                {item.label == "Clientes" ? (
+                  <HiOutlineUserGroup color="#FCA311" />
+                ) : (
+                  ""
+                )}
+                {item.label == "Ventas" ? (
+                  <HiOutlineCurrencyDollar color="#FCA311" />
+                ) : (
+                  ""
+                )}
+                {item.label == "Usuarios" ? (
+                  <HiOutlineUserCircle color="#FCA311" />
+                ) : (
+                  ""
+                )}
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 };

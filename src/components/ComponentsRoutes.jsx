@@ -17,12 +17,17 @@ import { useAuth } from "../context/AuthContext";
 
 function ComponentsRoutes() {
   const { rol, isAuthenticated } = useAuth();
+
   return (
     <div className="content">
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registro" element={<RegistroPage />} />
-        <Route element={<ProtectedRoutes isAllowed={isAuthenticated} />}>
+        <Route
+          element={
+            <ProtectedRoutes isAllowed={isAuthenticated} redirecTo="/login" />
+          }
+        >
           <Route path="/inicio" element={<Inicio />} />
           <Route path="/clientes" element={<ClientesPage />} />
           <Route path="/clientes/new" element={<ClientesForm />} />
@@ -37,7 +42,7 @@ function ComponentsRoutes() {
             element={
               <ProtectedRoutes
                 isAllowed={isAuthenticated && rol === "Admin"}
-                redirecTo="/"
+                redirecTo="/login"
               />
             }
           >

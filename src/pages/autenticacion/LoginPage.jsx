@@ -23,13 +23,12 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     signin(usuarios);
-    navigate("/dashboard");
   };
 
   // Si estoy autenticado no me dejara entrar en el login
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/");
+    if (isAuthenticated) navigate("/inicio");
   }, [isAuthenticated]);
 
   return (
