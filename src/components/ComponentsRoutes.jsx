@@ -23,7 +23,7 @@ function ComponentsRoutes() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registro" element={<RegistroPage />} />
         <Route element={<ProtectedRoutes isAllowed={isAuthenticated} />}>
-        <Route path="/inicio" element={<Inicio />} />
+          <Route path="/inicio" element={<Inicio />} />
           <Route path="/clientes" element={<ClientesPage />} />
           <Route path="/clientes/new" element={<ClientesForm />} />
           <Route path="/clientes/edit/:id" element={<ClientesForm />} />
