@@ -54,7 +54,7 @@ const ClientesForm = () => {
   };
   console.log("pepe");
   return (
-    <div>
+    <div className="container w-50 mt-5">
       <h3>{params.id ? "Editar Cliente" : "Crear Cliente"}</h3>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">

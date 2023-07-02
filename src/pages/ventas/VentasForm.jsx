@@ -81,7 +81,7 @@ const VentasForm = () => {
   };
 
   return (
-    <div>
+    <div className="container w-50 mt-5">
       <h3>{"Crear Venta"}</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="cliente">Clientes:</label>
