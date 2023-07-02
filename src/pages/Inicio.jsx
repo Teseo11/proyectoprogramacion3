@@ -1,6 +1,6 @@
 import TableAnt from "../components/TableAnt";
 
-const Home = () => {
+const Inicio = () => {
   return (
     <div>
       <TableAnt />
@@ -8,4 +8,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Inicio;

@@ -23,6 +23,7 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     signin(usuarios);
+    navigate("/dashboard")
   };
 
   // Si estoy autenticado no me dejara entrar en el login
@@ -33,7 +34,7 @@ const LoginPage = () => {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-lg-4 col-md-6 col-sm-8">
+        <div className="form-container col-lg-4 col-md-6 col-sm-8">
           <h2 className="text-center mb-4">Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">

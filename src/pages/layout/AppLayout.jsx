@@ -1,12 +1,11 @@
-import Navbar from "./Navbar";
-import Header from "./Header";
-import Content from "./Content";
+import Navbar from "../../components/Navbar";
+import Header from "../../components/Header";
+import Content from "../../components/Content";
 
 const AppLayout = () => {
   return (
     <div className="app-layout">
       <Navbar />
-
       <div className="main-content">
         <Header />
         <Content />
