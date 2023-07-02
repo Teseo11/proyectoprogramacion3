@@ -17,10 +17,10 @@ const Navbar = () => {
         <li>
           <NavLink
             className={({ isActive }) => (isActive ? "active-link" : null)}
-            to="/"
+            to="/inicio"
           >
             <HiOutlineHome color="#FCA311" />
-            Home
+            Inicio
           </NavLink>
         </li>
         <li>
