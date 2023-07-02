@@ -45,6 +45,7 @@ export function EntitiesProvider({ children }) {
       const res = await deleteEntityRequest(url, id);
       console.log(element);
       if (res.status === 204) setElement(element.filter((el) => el.id !== id));
+      return res.data;
     } catch (error) {
       console.log(error);
     }

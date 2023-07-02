@@ -17,12 +17,14 @@ const UsuariosForm = () => {
 
   useEffect(() => {
     const loadUsuarios = async () => {
-      const res = await getElementS("/usuarios/", params.id);
-      setUsuarios({
-        username: res.username,
-        contrasenia: res.contrasenia,
-        rol: res.rol,
-      });
+      if (params.id) {
+        const res = await getElementS("/usuarios/", params.id);
+        setUsuarios({
+          username: res.username,
+          contrasenia: res.contrasenia,
+          rol: res.rol,
+        });
+      }
     };
     loadUsuarios();
   }, []);
@@ -79,14 +81,11 @@ const UsuariosForm = () => {
           <label className="form-label" htmlFor="rol">
             Rol:
           </label>
-          <input
-            type="text"
-            name="rol"
-            id="rol"
-            value={usuarios.rol}
-            onChange={handleChange}
-            className="form-control"
-          />
+          <select name="rol" onChange={handleChange} required>
+            <option value="">---</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Admin">Admin</option>
+          </select>
         </div>
         <button type="submit" className="btn btn-primary">
           Enviar

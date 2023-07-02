@@ -39,9 +39,9 @@ export const AuthProvider = ({ children }) => {
       setUser(res.data.username);
       setRol(res.data.rol);
 
-      sessionStorage.setItem("token", res.data.token);
-      sessionStorage.setItem("username", res.data.username);
-      sessionStorage.setItem("rol", res.data.rol);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.username);
+      localStorage.setItem("rol", res.data.rol);
       console.log(res.data);
     } catch (error) {
       console.log(error);
@@ -49,9 +49,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("rol");
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    localStorage.removeItem("rol");
     setIsAuthenticated(false);
     setUser(null);
     setRol(null);
@@ -59,13 +59,13 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (
-      sessionStorage.getItem("token") &&
-      sessionStorage.getItem("username") &&
-      sessionStorage.getItem("rol")
+      localStorage.getItem("token") &&
+      localStorage.getItem("username") &&
+      localStorage.getItem("rol")
     ) {
       setIsAuthenticated(true);
-      setUser(sessionStorage.username);
-      setRol(sessionStorage.rol);
+      setUser(localStorage.username);
+      setRol(localStorage.rol);
     } else {
       setIsAuthenticated(false);
       setUser(null);

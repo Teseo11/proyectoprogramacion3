@@ -17,6 +17,7 @@ import { useAuth } from "../context/AuthContext";
 
 function Content() {
   const { rol, isAuthenticated } = useAuth();
+
   return (
     <div className="content">
       <Routes>

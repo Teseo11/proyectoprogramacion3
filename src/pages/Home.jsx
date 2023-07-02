@@ -1,9 +1,7 @@
-import TableAnt from "../components/TableAnt";
-
 const Home = () => {
   return (
     <div>
-      <TableAnt />
+      <h1>home</h1>
     </div>
   );
 };

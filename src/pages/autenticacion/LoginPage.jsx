@@ -26,6 +26,7 @@ const LoginPage = () => {
   };
 
   // Si estoy autenticado no me dejara entrar en el login
+
   useEffect(() => {
     if (isAuthenticated) navigate("/");
   }, [isAuthenticated]);
