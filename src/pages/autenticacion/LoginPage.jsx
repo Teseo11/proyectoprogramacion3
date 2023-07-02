@@ -36,7 +36,7 @@ const LoginPage = () => {
     <div className="container">
       <div className="row justify-content-center">
         <div className="form-container col-lg-4 col-md-6 col-sm-8">
-          <h2>prueba 222</h2>
+          <h2>MAXIMO</h2>
           <h2 className="text-center mb-4">Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
