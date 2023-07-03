@@ -52,7 +52,7 @@ const UsuariosForm = () => {
   };
 
   return (
-    <div>
+    <div className="container w-50 mt-5">
       <h3>{params.id ? "Editar Usuario" : "Crear Usuario"}</h3>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -67,7 +67,7 @@ const UsuariosForm = () => {
             onChange={handleChange}
             className="form-control"
           />
-          <label className="form-label" htmlFor="contrasenia">
+          <label className="form-label mt-3" htmlFor="contrasenia">
             Password:
           </label>
           <input
@@ -78,7 +78,7 @@ const UsuariosForm = () => {
             onChange={handleChange}
             className="form-control"
           />
-          <label className="form-label" htmlFor="rol">
+          <label className="form-label mt-3" htmlFor="rol">
             Rol:
           </label>
           <select name="rol" onChange={handleChange} required>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
+import '../Form.css'
 
 const ProductosForm = () => {
   const [productos, setProductos] = useState({
@@ -54,7 +55,7 @@ const ProductosForm = () => {
   };
 
   return (
-    <div>
+    <div className="container w-50 mt-5">
       <h3>{params.id ? "Editar Producto" : "Crear Producto"}</h3>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">

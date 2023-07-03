@@ -1,4 +1,4 @@
-header {
+.header {
   height: 6rem;
 
   display: flex;
@@ -8,6 +8,21 @@ header {
   background-color: #14213d;
 }
 
-header nav {
+.header a {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  text-decoration: none;
+  color: inherit;
+
+  font-size: 1rem;
+}
+
+.header a:hover {
+  opacity: 0.5;
+}
+
+.header h2 span {
+  color: #fca311;
 }
