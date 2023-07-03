@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Table, Button, Space } from "antd";
 import { Link } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
+import { faTrash, faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ClientesTable = () => {
   const [data, setData] = useState([]);
@@ -12,11 +14,11 @@ const ClientesTable = () => {
       const res = await getElement("/clientes");
       setData(
         res.map((row) => ({
-          nombre: row.nombre,
-          dni: row.dni,
-          correo: row.correo,
-          direccion: row.direccion,
           id: row.id,
+          Nombre: row.nombre,
+          DNI: row.dni,
+          Correo: row.correo,
+          Dirección: row.direccion,
         }))
       );
     };
@@ -47,10 +49,20 @@ const ClientesTable = () => {
       render: (_, record) => (
         <Space>
           <Link to={`./edit/${record.id}`}>
-            <button>Editar</button>
+            <Button>
+              <FontAwesomeIcon
+                icon={faPencil}
+                size="xl"
+                style={{ color: "#65c374" }}
+              />
+            </Button>
           </Link>
-          <Button onClick={() => deleteElement("/clientes/", record.id)}>
-            Borrar
+          <Button
+            type="primary"
+            danger
+            onClick={() => deleteElement("/clientes/", record.id)}
+          >
+            <FontAwesomeIcon icon={faTrash} size="xl" />
           </Button>
         </Space>
       ),
@@ -61,8 +73,13 @@ const ClientesTable = () => {
 
   return (
     <>
-      <Link to="./new" className="btn btn-primary mt-2 mb-2">
-        Crear
+      <Link to="./new">
+        <Button
+          type="primary"
+          style={{ margin: "10px 10px 0px 10px", height: "50px" }}
+        >
+          <FontAwesomeIcon icon={faPlus} beat size="2xl" />
+        </Button>
       </Link>
       <Table
         dataSource={data}

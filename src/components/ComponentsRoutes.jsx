@@ -1,4 +1,11 @@
 import { Routes, Route } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
+import ProtectedRoutes from "../ProtectedRoutes";
+import LoginPage from "../pages/autenticacion/LoginPage";
+import RegistroPage from "../pages/autenticacion/RegistroPage";
+
+import Inicio from "../pages/Inicio";
 import ClientesPage from "../pages/clientes/ClientesPage";
 import ClientesForm from "../pages/clientes/ClientesForm";
 import ProductosPage from "../pages/productos/ProductosPage";
@@ -7,13 +14,8 @@ import UsuariosPage from "../pages/usuarios/UsuariosPage";
 import UsuariosForm from "../pages/usuarios/UsuariosForm";
 import VentasPage from "../pages/ventas/VentasPage";
 import VentasForm from "../pages/ventas/VentasForm";
-import NotFound from "../pages/NotFound";
-import Inicio from "../pages/Inicio";
 
-import RegistroPage from "../pages/autenticacion/RegistroPage";
-import LoginPage from "../pages/autenticacion/LoginPage";
-import ProtectedRoutes from "../ProtectedRoutes";
-import { useAuth } from "../context/AuthContext";
+import NotFound from "../pages/NotFound";
 
 function ComponentsRoutes() {
   const { rol, isAuthenticated } = useAuth();
