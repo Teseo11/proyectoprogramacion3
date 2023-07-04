@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { Table, Button, Space } from "antd";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
 import { faTrash, faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  HiOutlineUserAdd,
+  HiOutlinePencilAlt,
+  HiOutlineTrash,
+} from "react-icons/hi";
+import "../Table.css";
 
 const UsuariosTable = () => {
   const [data, setData] = useState([]);
@@ -47,21 +53,15 @@ const UsuariosTable = () => {
       render: (_, record) => (
         <Space>
           <Link to={`./edit/${record.id}`}>
-            <Button>
-              <FontAwesomeIcon
-                icon={faPencil}
-                size="xl"
-                style={{ color: "#65c374" }}
-              />
-            </Button>
+            <HiOutlinePencilAlt size={30} color="#FCA311" />
           </Link>
-          <Button
+          <Link
             type="primary"
             danger
             onClick={() => deleteElement("/usuarios/", record.id)}
           >
-            <FontAwesomeIcon icon={faTrash} size="xl" />
-          </Button>
+            <HiOutlineTrash size={30} color="#FCA311" />
+          </Link>
         </Space>
       ),
     });
@@ -70,17 +70,15 @@ const UsuariosTable = () => {
   };
 
   return (
-    <>
-      <Link to="./new">
-        <Button
-          type="primary"
-          style={{ margin: "10px 10px 0px 10px", height: "50px" }}
-        >
-          <FontAwesomeIcon icon={faPlus} beat size="2xl" />
-        </Button>
-      </Link>
-      <Table dataSource={data} columns={generateColumns()} pagination={false} />
-    </>
+    <div className="container w-75 mt-5">
+      <div className="add-section">
+        <NavLink to="./new">
+          <HiOutlineUserAdd size={30} color="#FCA311" />
+          Añadir nuevo usuario
+        </NavLink>
+      </div>
+      <Table dataSource={data} columns={generateColumns()} />
+    </div>
   );
 };
 
