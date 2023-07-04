@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Table, Button, Space } from "antd";
+import { Table, Space } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
-import { faTrash, faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   HiOutlineUserAdd,
   HiOutlinePencilAlt,

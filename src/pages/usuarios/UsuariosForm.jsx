@@ -87,7 +87,7 @@ const UsuariosForm = () => {
             <option value="Admin">Admin</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-warning mt-2">
           Enviar
         </button>
       </form>

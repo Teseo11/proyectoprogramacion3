@@ -53,7 +53,7 @@ const LoginPage = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="password" className="form-label">
-                Password
+                Contraseña
               </label>
               <input
                 className="form-control"
@@ -62,15 +62,15 @@ const LoginPage = () => {
                 onChange={handleChange}
                 value={usuarios.contrasenia}
                 required
-                placeholder="1234"
+                placeholder="*********"
               />
             </div>
             <button type="submit" className="btn btn-primary w-100">
-              Login
+              Iniciar sesión
             </button>
           </form>
           <p className="create">
-            Aun no tienes una cuenta? <Link to="/registro">Registrate!</Link>
+            Aún no tienes una cuenta? <Link to="/registro">Registrate!</Link>
           </p>
         </div>
       </div>

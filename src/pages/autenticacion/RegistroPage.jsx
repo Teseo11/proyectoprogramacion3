@@ -53,7 +53,7 @@ const RegistroPage = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="password" className="form-label">
-                Password
+                Contraseña
               </label>
               <input
                 className="form-control"
@@ -62,7 +62,7 @@ const RegistroPage = () => {
                 onChange={handleChange}
                 value={usuarios.contrasenia}
                 required
-                placeholder="1234"
+                placeholder="*********"
               />
             </div>
             <div className="mb-3">
@@ -75,11 +75,11 @@ const RegistroPage = () => {
               </select>
             </div>
             <button type="submit" className="btn btn-primary w-100">
-              Registrar
+              Crear nueva cuenta
             </button>
           </form>
           <p className="create">
-            Ya tienes una cuenta? <Link to="/login">Logeate!</Link>
+            Ya tienes una cuenta? <Link to="/login">Logueate!</Link>
           </p>
         </div>
       </div>

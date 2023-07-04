@@ -104,7 +104,7 @@ const ProductosForm = () => {
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-warning mt-2">
           Enviar
         </button>
       </form>
