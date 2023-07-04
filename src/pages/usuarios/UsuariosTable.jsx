@@ -10,7 +10,7 @@ const UsuariosTable = () => {
   const { getElement, deleteElement } = useEntities();
 
   useEffect(() => {
-    const getClientes = async () => {
+    const getUsuarios = async () => {
       const res = await getElement("/usuarios");
       setData(
         res.map((row) => ({
@@ -21,7 +21,7 @@ const UsuariosTable = () => {
       );
     };
 
-    getClientes();
+    getUsuarios();
   }, [data]);
 
   const generateColumns = () => {
@@ -79,11 +79,7 @@ const UsuariosTable = () => {
           <FontAwesomeIcon icon={faPlus} beat size="2xl" />
         </Button>
       </Link>
-      <Table
-        dataSource={data}
-        columns={generateColumns()}
-        pagination={{ pageSize: 5, total: 10, showSizeChanger: true }}
-      />
+      <Table dataSource={data} columns={generateColumns()} pagination={false} />
     </>
   );
 };
