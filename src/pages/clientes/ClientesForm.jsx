@@ -44,12 +44,14 @@ const ClientesForm = () => {
       if (params.id) {
         await updateElement(`/clientes/${params.id}`, clientes);
         navigate("/clientes");
+        toast.success('Cliente editado')
       } else {
         await createElement("/clientes", clientes);
         navigate("/clientes");
+        toast.success('Nuevo cliente creado')
       }
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   };
   return (
@@ -72,7 +74,7 @@ const ClientesForm = () => {
             DNI:
           </label>
           <input
-            type="text"
+            type="number"
             name="dni"
             id="dni"
             value={clientes.dni}
@@ -83,7 +85,7 @@ const ClientesForm = () => {
             Correo:
           </label>
           <input
-            type="text"
+            type="email"
             name="correo"
             id="correo"
             value={clientes.correo}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
+import toast from 'react-hot-toast'
 
 const ProductosForm = () => {
   const [productos, setProductos] = useState({
@@ -44,9 +45,11 @@ const ProductosForm = () => {
       if (params.id) {
         await updateElement(`/productos/${params.id}`, productos);
         navigate("/productos");
+        toast.success('Producto editado correctamente')
       } else {
         await createElement("/productos", productos);
         navigate("/productos");
+        toast.success('Producto nuevo creado')
       }
     } catch (error) {
       console.error(error);

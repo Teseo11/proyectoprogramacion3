@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
+import toast from 'react-hot-toast'
 
 const UsuariosForm = () => {
   const [usuarios, setUsuarios] = useState({
@@ -42,9 +43,11 @@ const UsuariosForm = () => {
       if (params.id) {
         await updateElement(`/usuarios/${params.id}`, usuarios);
         navigate("/usuarios");
+        toast.success('Usuario editado correctamente')
       } else {
         await createElement("/usuarios", usuarios);
         navigate("/usuarios");
+        toast.success('Nuevo usuario creado')
       }
     } catch (error) {
       console.error(error);

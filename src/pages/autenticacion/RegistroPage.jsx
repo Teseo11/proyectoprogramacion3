@@ -1,35 +1,35 @@
-import { useState, useEffect } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { useNavigate, Link } from "react-router-dom";
-import "./LogStyles.css";
+import { useState, useEffect } from 'react'
+import { useAuth } from '../../context/AuthContext'
+import { useNavigate, Link } from 'react-router-dom'
+import './LogStyles.css'
 
 const RegistroPage = () => {
   const [usuarios, setUsuarios] = useState({
-    username: "",
-    contrasenia: "",
-    rol: "",
-  });
+    username: '',
+    contrasenia: '',
+    rol: '',
+  })
 
-  const { signup, isAuthenticated } = useAuth();
+  const { signup, isAuthenticated } = useAuth()
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   // Si estoy autenticado no me dejara entrar en el registro
   useEffect(() => {
-    if (isAuthenticated) navigate("/");
-  }, [isAuthenticated]);
+    if (isAuthenticated) navigate('/')
+  }, [isAuthenticated])
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setUsuarios({
       ...usuarios,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    signup(usuarios);
-  };
+  const handleSubmit = e => {
+    e.preventDefault()
+    signup(usuarios)
+  }
 
   return (
     <div className="container">
@@ -69,7 +69,12 @@ const RegistroPage = () => {
               <label htmlFor="password" className="form-label">
                 Rol:
               </label>
-              <select name="rol" onChange={handleChange} required className="form-select">
+              <select
+                name="rol"
+                onChange={handleChange}
+                required
+                className="form-select"
+              >
                 <option value="">---</option>
                 <option value="Empleado">Empleado</option>
                 <option value="Admin">Admin</option>
@@ -85,7 +90,7 @@ const RegistroPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RegistroPage;
+export default RegistroPage
