@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
   getEntitiesRequest,
   getEntityRequest,
@@ -26,7 +26,7 @@ export function EntitiesProvider({ children }) {
     try {
       const res = await getEntitiesRequest(url);
       setElement(res.data);
-      return res.data;
+      return res.data; // retorno los datos para la tabla de ant design
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +43,6 @@ export function EntitiesProvider({ children }) {
   const deleteElement = async (url, id) => {
     try {
       const res = await deleteEntityRequest(url, id);
-      console.log(element);
       if (res.status === 204) setElement(element.filter((el) => el.id !== id));
       return res.data;
     } catch (error) {

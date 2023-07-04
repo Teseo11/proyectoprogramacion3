@@ -4,7 +4,6 @@ import App from "./App.jsx";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
-import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { EntitiesProvider } from "./context/EntitiesContext.jsx";

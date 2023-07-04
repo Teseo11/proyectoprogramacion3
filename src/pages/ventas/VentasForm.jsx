@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
+import toast from 'react-hot-toast'
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
@@ -64,6 +65,7 @@ const VentasForm = () => {
       await createElement("/ventas", ventas);
       restarStock(ventas.producto, ventas.cantidad);
       navigate("/ventas");
+      toast.success('Nueva venta creada')
     } catch (error) {
       console.log(error);
     }
