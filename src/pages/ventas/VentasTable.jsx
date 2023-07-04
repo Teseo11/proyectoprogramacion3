@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
-import { Table, Button, Space } from "antd";
-import { Link } from "react-router-dom";
+import { Table, Space } from "antd";
+import { Link, NavLink } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
-import { faTrash, faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  HiOutlinePencilAlt,
+  HiOutlineTrash,
+  HiOutlineShoppingCart,
+} from "react-icons/hi";
+import "../Table.css";
 
 const VentasTable = () => {
   const [data, setData] = useState([]);
@@ -48,22 +52,16 @@ const VentasTable = () => {
       fixed: "right",
       render: (_, record) => (
         <Space>
-          {/* <Link to={`./edit/${record.id}`}>
-            <Button>
-              <FontAwesomeIcon
-                icon={faPencil}
-                size="xl"
-                style={{ color: "#65c374" }}
-              />
-            </Button>
-          </Link> */}
-          <Button
+          <Link to={`./edit/${record.id}`}>
+            <HiOutlinePencilAlt size={30} color="#FCA311" />
+          </Link>
+          <Link
             type="primary"
             danger
             onClick={() => deleteElement("/ventas/", record.id)}
           >
-            <FontAwesomeIcon icon={faTrash} size="xl" />
-          </Button>
+            <HiOutlineTrash size={30} color="#FCA311" />
+          </Link>
         </Space>
       ),
     });
@@ -72,17 +70,15 @@ const VentasTable = () => {
   };
 
   return (
-    <>
-      <Link to="./new">
-        <Button
-          type="primary"
-          style={{ margin: "10px 10px 0px 10px", height: "50px" }}
-        >
-          <FontAwesomeIcon icon={faPlus} beat size="2xl" />
-        </Button>
-      </Link>
+    <div className="container w-75 mt-5">
+      <div className="add-section">
+        <NavLink to="./new">
+          <HiOutlineShoppingCart size={30} color="#FCA311" />
+          Añadir nueva venta
+        </NavLink>
+      </div>
       <Table dataSource={data} columns={generateColumns()} pagination={false} />
-    </>
+    </div>
   );
 };
 

@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
-import { Table, Button, Space } from "antd";
-import { Link } from "react-router-dom";
+import { Table, Space } from "antd";
+import { NavLink, Link } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
-import { faTrash, faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  HiOutlinePencilAlt,
+  HiOutlineTrash,
+  HiOutlineUserAdd
+} from "react-icons/hi";
+import '../Table.css'
+
 
 const ClientesTable = () => {
   const [data, setData] = useState([]);
@@ -49,21 +54,15 @@ const ClientesTable = () => {
       render: (_, record) => (
         <Space>
           <Link to={`./edit/${record.id}`}>
-            <Button>
-              <FontAwesomeIcon
-                icon={faPencil}
-                size="xl"
-                style={{ color: "#65c374" }}
-              />
-            </Button>
+            <HiOutlinePencilAlt size={30} color="#FCA311" />
           </Link>
-          <Button
+          <Link
             type="primary"
             danger
             onClick={() => deleteElement("/clientes/", record.id)}
           >
-            <FontAwesomeIcon icon={faTrash} size="xl" />
-          </Button>
+            <HiOutlineTrash size={30} color="#FCA311" />
+          </Link>
         </Space>
       ),
     });
@@ -72,17 +71,15 @@ const ClientesTable = () => {
   };
 
   return (
-    <>
-      <Link to="./new">
-        <Button
-          type="primary"
-          style={{ margin: "10px 10px 0px 10px", height: "50px" }}
-        >
-          <FontAwesomeIcon icon={faPlus} beat size="2xl" />
-        </Button>
-      </Link>
+    <div className="container w-75 mt-5">
+      <div className="add-section">
+        <NavLink to="./new">
+          <HiOutlineUserAdd size={30} color="#FCA311" />
+          Añadir nuevo cliente
+        </NavLink>
+      </div>
       <Table dataSource={data} columns={generateColumns()} pagination={false} />
-    </>
+    </div>
   );
 };
 
