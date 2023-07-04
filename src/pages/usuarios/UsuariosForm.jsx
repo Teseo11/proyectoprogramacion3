@@ -81,7 +81,7 @@ const UsuariosForm = () => {
           <label className="form-label mt-3" htmlFor="rol">
             Rol:
           </label>
-          <select name="rol" onChange={handleChange} required>
+          <select name="rol" onChange={handleChange} required className="form-select">
             <option value="">---</option>
             <option value="Empleado">Empleado</option>
             <option value="Admin">Admin</option>

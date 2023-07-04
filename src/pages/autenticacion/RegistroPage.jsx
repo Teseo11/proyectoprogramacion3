@@ -69,9 +69,10 @@ const RegistroPage = () => {
               <label htmlFor="password" className="form-label">
                 Rol:
               </label>
-              <select name="rol" onChange={handleChange} required>
+              <select name="rol" onChange={handleChange} required className="form-select">
                 <option value="">---</option>
                 <option value="Empleado">Empleado</option>
+                <option value="Admin">Admin</option>
               </select>
             </div>
             <button type="submit" className="btn btn-primary w-100">

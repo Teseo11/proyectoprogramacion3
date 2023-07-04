@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEntities } from "../../context/EntitiesContext";
-import '../Form.css'
 
 const ProductosForm = () => {
   const [productos, setProductos] = useState({
