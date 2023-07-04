@@ -2,6 +2,10 @@
 .App {
   font-family: "Roboto", sans-serif;
   height: 100vh;
-  background: rgb(17, 6, 71);
+  background: #E5E5E5;
   color: white;
+}
+
+.content {
+  color: rgb(52, 52, 52);
 }
