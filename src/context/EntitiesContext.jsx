@@ -26,7 +26,7 @@ export function EntitiesProvider({ children }) {
     try {
       const res = await getEntitiesRequest(url);
       setElement(res.data);
-      return res.data; // retorno los datos para la tabla de ant design
+      return res.data;
     } catch (error) {
       console.log(error);
     }
