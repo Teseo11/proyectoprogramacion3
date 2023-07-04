@@ -48,7 +48,7 @@ const VentasTable = () => {
       fixed: "right",
       render: (_, record) => (
         <Space>
-          <Link to={`./edit/${record.id}`}>
+          {/* <Link to={`./edit/${record.id}`}>
             <Button>
               <FontAwesomeIcon
                 icon={faPencil}
@@ -56,7 +56,7 @@ const VentasTable = () => {
                 style={{ color: "#65c374" }}
               />
             </Button>
-          </Link>
+          </Link> */}
           <Button
             type="primary"
             danger

@@ -49,10 +49,9 @@ const ClientesForm = () => {
         navigate("/clientes");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
-  console.log("pepe");
   return (
     <div className="container w-50 mt-5">
       <h3>{params.id ? "Editar Cliente" : "Crear Cliente"}</h3>

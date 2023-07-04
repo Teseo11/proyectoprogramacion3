@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [rol, setRol] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  //const [errors, setErrors] = useState(null);
   const token = localStorage.getItem("token");
 
   const signup = async (user) => {
@@ -26,8 +25,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
       console.log(user);
     } catch (error) {
-      console.log(error);
-      //setErrors(error.response.data);
+      alert("El usuario ya existe!");
     }
   };
 
@@ -44,7 +42,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("rol", res.data.rol);
       console.log(res.data);
     } catch (error) {
-      console.log(error);
+      alert("El usuario o la contraseña son incorrectas");
     }
   };
 
