@@ -77,7 +77,7 @@ const UsuariosTable = () => {
           Añadir nuevo usuario
         </NavLink>
       </div>
-      <Table dataSource={data} columns={generateColumns()} />
+      <Table dataSource={data} columns={generateColumns()} pagination={false} />
     </div>
   );
 };
